@@ -32,6 +32,7 @@
             <StackPanel Orientation="Horizontal" Grid.Row="1">
                 <Button x:Name="btnNewPerson" Content="New Person" Click="btnNewPerson_Click"/>
                 <Button x:Name="btnDeletePerson" Content="Delete Person" Click="btnDeletePerson_Click"/>
+                <Button x:Name="btnUpdate" Content="Update List" Click="btnUpdate_Click"></Button>
             </StackPanel>
         </Grid>
 

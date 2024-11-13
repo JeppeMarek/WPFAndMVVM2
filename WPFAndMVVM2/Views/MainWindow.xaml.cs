@@ -40,5 +40,10 @@ namespace WPFAndMVVM2
         {
             mvm.DeleteSelectedPerson();
         }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
