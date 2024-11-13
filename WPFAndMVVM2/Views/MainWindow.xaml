@@ -17,16 +17,22 @@
                 <RowDefinition Height="10*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <ListBox Grid.Row="0" ItemsSource="{Binding PersonsVM}" SelectedItem="{Binding SelectedPerson}">
+            <ListBox x:Name="lbPersonList" Grid.Row="0" ItemsSource="{Binding PersonsVM}" SelectedItem="{Binding SelectedPerson}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <Label Content="{Binding FullName, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBlock Text="{Binding FirstName}"/>
+                            <TextBlock Text=" "/>
+                            <TextBlock Text="{Binding LastName}"/>
                         </StackPanel>
+
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            <StackPanel Orientation="Horizontal" Grid.Row="1"/>
+            <StackPanel Orientation="Horizontal" Grid.Row="1">
+                <Button x:Name="btnNewPerson" Content="New Person" Click="btnNewPerson_Click"/>
+                <Button x:Name="btnDeletePerson" Content="Delete Person" Click="btnDeletePerson_Click"/>
+            </StackPanel>
         </Grid>
 
         <GridSplitter Width="5" Grid.Column="1" HorizontalAlignment="Stretch"/>

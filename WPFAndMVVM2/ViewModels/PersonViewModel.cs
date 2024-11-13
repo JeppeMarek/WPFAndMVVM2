@@ -10,7 +10,7 @@ namespace WPFAndMVVM2.ViewModels
     public class PersonViewModel
     {
         private Person person = new Person();
-        public string FirstName { get; set; }
+        public string FirstName { get; set; } 
         public string LastName { get; set; }
         public int Age { get; set; }
         public string Phone { get; set; }
@@ -26,9 +26,14 @@ namespace WPFAndMVVM2.ViewModels
             LastName = person.LastName;
             Age = person.Age;
             Phone = person.Phone;
-
-
         }
+
+        public void Delete(PersonRepository personRepo)
+        {
+            personRepo.Remove(person.Id);
+         
+        }
+        
 
     }
 }

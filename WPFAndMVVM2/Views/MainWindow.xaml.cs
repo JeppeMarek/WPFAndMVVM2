@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPFAndMVVM2.Models;
 using WPFAndMVVM2.ViewModels;
 
 namespace WPFAndMVVM2
@@ -27,6 +28,17 @@ namespace WPFAndMVVM2
         {
             InitializeComponent();
             DataContext = mvm;
+        }
+
+        private void btnNewPerson_Click(object sender, RoutedEventArgs e)
+        {
+            mvm.AddDefaultPerson();
+            lbPersonList.ScrollIntoView(mvm.SelectedPerson);
+        }
+
+        private void btnDeletePerson_Click(object sender, RoutedEventArgs e)
+        {
+            mvm.DeleteSelectedPerson();
         }
     }
 }
