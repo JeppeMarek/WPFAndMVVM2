@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFAndMVVM2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="500" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="250" MinWidth="200"/>
@@ -17,22 +17,21 @@
                 <RowDefinition Height="10*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <ListBox x:Name="lbPersonList" Grid.Row="0" ItemsSource="{Binding PersonsVM}" SelectedItem="{Binding SelectedPerson}">
+            <ListBox x:Name="lbPersonList" Grid.Row="0" ItemsSource="{Binding PersonsVM}" SelectedItem="{Binding SelectedPerson}" Background="#3f524c">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding FirstName}"/>
-                            <TextBlock Text=" "/>
-                            <TextBlock Text="{Binding LastName}"/>
+                            <TextBlock Text="{Binding FirstName}" Foreground="White"> </TextBlock>
+                            <TextBlock Text=" " Foreground="White"/>
+                            <TextBlock Text="{Binding LastName}" Foreground="White"/>
                         </StackPanel>
 
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
             <StackPanel Orientation="Horizontal" Grid.Row="1">
-                <Button x:Name="btnNewPerson" Content="New Person" Click="btnNewPerson_Click"/>
-                <Button x:Name="btnDeletePerson" Content="Delete Person" Click="btnDeletePerson_Click"/>
-                <Button x:Name="btnUpdate" Content="Update List" Click="btnUpdate_Click"></Button>
+                <Button x:Name="btnNewPerson" Content="New Person" Command="{Binding AddCmd}" CommandParameter="{Binding}"/>
+                <Button x:Name="btnDeletePerson" Command="{Binding DeleteCmd}" CommandParameter="{Binding}" Content="Delete Person"/>
             </StackPanel>
         </Grid>
 

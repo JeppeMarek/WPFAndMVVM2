@@ -9,7 +9,6 @@ namespace WPFAndMVVM2.Models
         // idCount maintains a counter assigned as Id to each new Person-object and 
         // then incremented so that each Person-object has a unique Id number
         private static int idCount = 0;
-
         public int Id { get; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

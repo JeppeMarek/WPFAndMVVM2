@@ -5,6 +5,9 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
+using WPFAndMVVM2.Commands;
 using WPFAndMVVM2.Models;
 
 namespace WPFAndMVVM2.ViewModels
@@ -12,9 +15,10 @@ namespace WPFAndMVVM2.ViewModels
     public class MainViewModel : INotifyPropertyChanged
 
     {
-        // Properties and backingfields
+        // Backing Fields
         private PersonRepository personRepo = new PersonRepository();
         private PersonViewModel _selectedPerson;
+        // Properties
         public ObservableCollection<PersonViewModel> PersonsVM { get; set; } =
             new ObservableCollection<PersonViewModel>();
         public event PropertyChangedEventHandler PropertyChanged;
@@ -23,8 +27,10 @@ namespace WPFAndMVVM2.ViewModels
             get => _selectedPerson;
             set { _selectedPerson = value; OnPropertyChanged("SelectedPerson"); }
         }
+        // Command Properties
+        public ICommand AddCmd { get; set; } = new AddCommand();
+        public ICommand DeleteCmd { get; set; } = new DeleteCommand();
 
-        // Event handler
         protected void OnPropertyChanged(string propertyName)
         {
             PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
